@@ -39,7 +39,7 @@ function Login() {
   
       if (response.ok) {
         sessionStorage.setItem("token", data.token); 
-        navigate("/interview"); 
+        navigate("/job"); 
       } else {
         console.error("Request failed:", data.message); 
       }

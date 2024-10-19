@@ -26,8 +26,8 @@ export default function Component() {
   
    
     const outputData = {
-      jobTitle,
-      jobDescription,
+      title,
+      description,
       experienceLevel,
       endDate,
       candidates, 
@@ -38,6 +38,7 @@ export default function Component() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${sessionStorage.getItem("token")}`,
         },
         body: JSON.stringify(outputData),
       });
