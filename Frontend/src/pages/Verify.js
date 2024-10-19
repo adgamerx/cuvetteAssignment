@@ -5,6 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 function Verify() {
   const [emailVerified, setEmailVerified] = useState(false);
   const [emailOtp, setEmailOtp] = useState("");
+  const [email, setEmail] = useState("");
   const navigate = useNavigate();
 
   const handleEmailVerify = async (e) => {
@@ -16,7 +17,8 @@ function Verify() {
         headers: {
           "Content-Type": "application/json", 
         },
-        body: JSON.stringify({ otp: emailOtp }), 
+        body: JSON.stringify({ email: sessionStorage.getItem('email'),
+          otp: emailOtp }), 
       });
   
       const data = await response.json();

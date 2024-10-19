@@ -41,6 +41,8 @@ function Register() {
 
   console.log(outputData);
 
+  sessionStorage.setItem('email', formData.email);
+
   try {
     const response = await fetch(`${process.env.REACT_APP_SERVER}/company/register`, {
       method: 'POST',
