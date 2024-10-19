@@ -17,10 +17,10 @@ This is a full-stack Job Posting Board application built using the MERN (MongoDB
     - [1. Company Registration](#1-company-registration)
     - [2. Company Login](#2-company-login)
     - [3. Job Posting](#3-job-posting)
+  - [Frontend Routes](#frontend-routes)
   - [Environment Variables](#environment-variables)
   - [Contributing](#contributing)
   - [License](#license)
-    - [Customization](#customization)
 
 ## Technologies Used
 - **Frontend**: React.js, Axios
@@ -124,6 +124,14 @@ This will start the React application on `http://localhost:3000`.
     "candidates": ["candidate1@example.com", "candidate2@example.com"]
   }
   ```
+
+## Frontend Routes
+- `/`: Home page (currently blank)
+- `/register`: Company registration page
+- `/login`: Company login page
+- `/verify`: OTP verification page
+- `/job`  : Job posting page
+- `/job/create` : Job creation page (Broadcast mail to candidates)
 
 ## Environment Variables
 Make sure to set up the environment variables as mentioned in the **Installation** section.
