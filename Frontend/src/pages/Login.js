@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { MailIcon, LockIcon } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -38,8 +40,15 @@ function Login() {
       const data = await response.json();
   
       if (response.ok) {
-        sessionStorage.setItem("token", data.token); 
-        navigate("/job"); 
+        sessionStorage.setItem("token", data.token);
+
+        toast.success("Logged In Successfully !!!");
+
+        setTimeout(() => {          
+          navigate("/job"); 
+        }, 2000);
+        
+
       } else {
         console.error("Request failed:", data.message); 
       }
@@ -121,6 +130,7 @@ function Login() {
           </div>
         </div>
       </main>
+      <ToastContainer />
     </div>
   );
 }

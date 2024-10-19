@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Home, ChevronDown, User, Calendar, X } from "lucide-react";
 import {useNavigate} from "react-router-dom";
 import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function Component() {
   const [endDate, setEndDate] = useState("");
   const [candidates, setCandidates] = useState([]);
@@ -51,8 +53,9 @@ export default function Component() {
   
       const data = await response.json();
   
-      if (data.status) {
+      if (response.status === 201) {
         console.log("Submission successful:", data);
+        toast.success("Job Sent Successfully !!!");
       } else {
         console.error("Submission failed:", data.message);
       }
@@ -214,6 +217,7 @@ export default function Component() {
           </form>
         </main>
       </div>
+      <ToastContainer />
     </div>
   );
 }
