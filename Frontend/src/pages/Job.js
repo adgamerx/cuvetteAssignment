@@ -91,7 +91,7 @@ export default function Component() {
                 type="text"
                 placeholder="Enter Job Title"
                 className="col-span-2 p-2 border rounded-md"
-                value={jobTitle}
+                value={title}
                 onChange={(e) => setJobTitle(e.target.value)}
               />
             </div>
@@ -107,7 +107,7 @@ export default function Component() {
                 placeholder="Enter Job Description"
                 rows={4}
                 className="col-span-2 p-2 border rounded-md"
-                value={jobDescription}
+                value={description}
                 onChange={(e) => setJobDescription(e.target.value)}
               />
             </div>
