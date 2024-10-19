@@ -1,11 +1,25 @@
 import { Home, ChevronDown, User } from 'lucide-react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,  } from 'react-router-dom';
+import { useEffect } from "react";
 
 function Interview() {
     const navigate = useNavigate();
     const createJob = () =>{
         navigate("/job/create");
     }
+    
+  const logout = () =>{
+    sessionStorage.removeItem("token");
+    navigate("/login");
+  }
+
+    useEffect(() => {
+      const token = sessionStorage.getItem('token');
+      if (!token) {
+        navigate('/login');
+      }
+    }, [navigate]);
+    
   return (
     <div className="flex flex-col h-screen">
       <header className="flex justify-between items-center p-4 border-b">
@@ -21,6 +35,9 @@ function Interview() {
             <span className="text-sm text-gray-600">Your Name</span>
             <ChevronDown className="w-4 h-4 text-gray-400" />
           </div>
+          <button className="border border-gray-300 rounded-md px-2 pb-1 text-gray-500" onClick={()=>logout()}>
+            Logout
+          </button>
         </div>
       </header>
       <div className="flex flex-1">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Home, ChevronDown, User, Calendar, X } from "lucide-react";
-
+import {useNavigate} from "react-router-dom";
+import { useEffect } from "react";
 export default function Component() {
   const [endDate, setEndDate] = useState("");
   const [candidates, setCandidates] = useState([]);
@@ -8,7 +9,7 @@ export default function Component() {
   const [title, setJobTitle] = useState("");
   const [description, setJobDescription] = useState("");
   const [experienceLevel, setExperienceLevel] = useState("");
-
+  const navigate = useNavigate();
   const addCandidate = (e) => {
     e.preventDefault(); // Prevent form submission
     if (newCandidate.trim() !== "") {
@@ -20,6 +21,11 @@ export default function Component() {
   const removeCandidate = (index) => {
     setCandidates(candidates.filter((_, i) => i !== index));
   };
+
+  const logout = () =>{
+    sessionStorage.removeItem("token");
+    navigate("/login");
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,6 +61,13 @@ export default function Component() {
     }
   };
 
+  useEffect(() => {
+    const token = sessionStorage.getItem('token');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
+  
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <header className="flex justify-between items-center p-4 bg-white border-b">
@@ -72,6 +85,9 @@ export default function Component() {
             <span className="text-sm text-gray-600">Your Name</span>
             <ChevronDown className="w-4 h-4 text-gray-400" />
           </div>
+          <button className="border border-gray-300 rounded-md px-2 pb-1 text-gray-500" onClick={()=>logout()}>
+            Logout
+          </button>
         </div>
       </header>
       <div className="flex flex-1">

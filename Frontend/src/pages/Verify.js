@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { PhoneIcon, MailIcon, Check } from "lucide-react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, } from "react-router-dom";
 
 function Verify() {
   const [emailVerified, setEmailVerified] = useState(false);
@@ -33,6 +33,13 @@ function Verify() {
       console.error("Error during email verification:", error); 
     }
   };
+
+  useEffect(() => {
+    const token = sessionStorage.getItem('token');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
 
   return (
     <div className="min-h-screen bg-white font-inter">
