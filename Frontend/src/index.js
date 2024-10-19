@@ -8,6 +8,7 @@ import Verify from './pages/Verify';
 import Interview from './pages/Interview';
 import Job from './pages/Job';
 import Login from './pages/Login';
+import Home from './pages/Home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -15,6 +16,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Home/>}/>
         <Route path="/register" element={<Register/>} />
         <Route path="/verify" element={<Verify/>} />
         <Route path="/job" element={<Interview/>} />
