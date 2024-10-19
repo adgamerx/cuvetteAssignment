@@ -133,11 +133,3 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
-
-### Customization
-- Replace `yourusername/job-posting-board.git` with the actual GitHub repository link.
-- You can add more specific information about your API endpoints, error handling, and usage based on your implementation.
-
-This `README.md` will help users understand how to set up and run the project on their local machines!
