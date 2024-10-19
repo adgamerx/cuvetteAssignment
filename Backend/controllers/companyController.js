@@ -1,6 +1,9 @@
 const Company = require('../models/Company');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
+const bcrypt = require('bcryptjs');
+const otpTemplate = require('../templates/otpTemplate');
+const { text } = require('express');
 
 // Generate JWT
 const generateToken = (id) => {
@@ -25,8 +28,8 @@ const sendOtpEmail = (email, otp) => {
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: email,
-    subject: 'Your OTP for Account Verification',
-    text: `Your OTP for account verification is: ${otp}. This OTP is valid for 10 minutes.`,
+    subject: 'Activate you account',
+    text: `use this number: ${otp}`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
