@@ -5,8 +5,8 @@ export default function Component() {
   const [endDate, setEndDate] = useState("");
   const [candidates, setCandidates] = useState([]);
   const [newCandidate, setNewCandidate] = useState("");
-  const [jobTitle, setJobTitle] = useState("");
-  const [jobDescription, setJobDescription] = useState("");
+  const [title, setJobTitle] = useState("");
+  const [description, setJobDescription] = useState("");
   const [experienceLevel, setExperienceLevel] = useState("");
 
   const addCandidate = (e) => {
